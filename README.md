@@ -190,6 +190,14 @@ Print the names of the files found before watching files and folders:
     => Watching files:
     lib/filewatcher.rb
 
+Watch for input and run a command:
+
+    FileWatcher.new(["lib/"],true).watch(0.5, -> { system("hello") }) do |filename|
+      puts "Updated " + filename
+    end
+    => Watching files:
+    lib/filewatcher.rb
+
 Use patterns to match filenames in current directory and subdirectories. The
 pattern is not a regular expression; instead it follows rules similar to shell
 filename globbing. See Ruby
